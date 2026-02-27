@@ -115,8 +115,29 @@
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1e293b; line-height: 1.6; }
   
+  /* Navigation */
+  .sticky-header {
+    position: sticky; top: 0; background: white; z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); padding: 0.75rem 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .sticky-header .logo { font-weight: 800; color: #1e3a5f; text-decoration: none; font-size: 1.2rem; }
+  .sticky-header nav a { margin-left: 1.2rem; text-decoration: none; color: #475569; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
+  .sticky-header nav a:hover { color: #1e3a5f; }
+  .sticky-header .nav-cta {
+    background: #1e3a5f; color: white !important; padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+  }
+  @media (max-width: 768px) {
+    .sticky-header nav { display: none; }
+  }
+
+  /* Section Offset for Sticky Header */
+  section[id] { scroll-margin-top: 5rem; }
+
   /* Hero */
   .hero {
     background: linear-gradient(135deg, #1e3a5f 0%, #0f2440 100%);
@@ -194,30 +215,42 @@
 </head>
 <body>
 
+<!-- Navigation -->
+<nav class="sticky-header">
+  <a href="#" class="logo">Universal Kutz</a>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#location">Visit Us</a>
+    <a href="#faq">FAQ</a>
+    <a href="tel:7137055025" class="nav-cta">Call Now</a>
+  </nav>
+</nav>
+
 <!-- Hero -->
 <div class="hero">
   <h1>Universal Kutz Barbershop</h1>
   <p class="tagline">Fresh cuts & fades in Willmar, MN</p>
-  <p class="bilingual-badge">🇲🇽 Se habla español &nbsp;|&nbsp; 🇺🇸 We speak English</p>
-  <a href="tel:7137055025" class="cta-btn">Call Now — Llame Ahora</a>
+  <p class="bilingual-badge"><span lang="es">🇲🇽 Se habla español</span> &nbsp;|&nbsp; 🇺🇸 We speak English</p>
+  <a href="tel:7137055025" class="cta-btn">Call Now — <span lang="es">Llame Ahora</span></a>
 </div>
 
 <!-- Services -->
-<section>
-  <h2>Our Services — Nuestros Servicios</h2>
+<section id="services">
+  <h2>Our Services — <span lang="es">Nuestros Servicios</span></h2>
   <div class="services-grid">
-    <div class="service-card"><h3>Haircut — Corte de pelo</h3><p>Expert haircuts for men, women, and kids. Cortes de pelo para toda la familia. <strong>$25</strong></p></div>
-    <div class="service-card"><h3>Fade — Degradado</h3><p>Specializing in fades, tapers, and modern styles. Especialistas en degradados. <strong>$28</strong></p></div>
-    <div class="service-card"><h3>Taper — Taper fade</h3><p>Classic taper fades and modern variations. Taper fade clásico y moderno. <strong>$28</strong></p></div>
-    <div class="service-card"><h3>Beard Trim — Arreglo de barba</h3><p>Professional beard trimming and shaping. Arreglo profesional de barba. <strong>$20</strong></p></div>
-    <div class="service-card"><h3>Kids' Cut — Corte para niños</h3><p>Stylish cuts for kids 12 and under. Cortes para niños de 12 años o menos. <strong>$20</strong></p></div>
+    <div class="service-card"><h3>Haircut — <span lang="es">Corte de pelo</span></h3><p>Expert haircuts for men, women, and kids. <span lang="es">Cortes de pelo para toda la familia.</span> <strong>$25</strong></p></div>
+    <div class="service-card"><h3>Fade — <span lang="es">Degradado</span></h3><p>Specializing in fades, tapers, and modern styles. <span lang="es">Especialistas en degradados.</span> <strong>$28</strong></p></div>
+    <div class="service-card"><h3>Taper — <span lang="es">Taper fade</span></h3><p>Classic taper fades and modern variations. <span lang="es">Taper fade clásico y moderno.</span> <strong>$28</strong></p></div>
+    <div class="service-card"><h3>Beard Trim — <span lang="es">Arreglo de barba</span></h3><p>Professional beard trimming and shaping. <span lang="es">Arreglo profesional de barba.</span> <strong>$20</strong></p></div>
+    <div class="service-card"><h3>Kids' Cut — <span lang="es">Corte para niños</span></h3><p>Stylish cuts for kids 12 and under. <span lang="es">Cortes para niños de 12 años o menos.</span> <strong>$20</strong></p></div>
   </div>
 </section>
 
 <!-- Reviews -->
-<section>
+<section id="reviews">
   <div class="reviews">
-    <div class="stars">★★★★★</div>
+    <div class="stars" aria-label="5 stars">★★★★★</div>
     
     <p class="count">447 reviews on Facebook &middot; <a href="https://www.google.com/maps/place/Universal+Kutz+Barbershop" target="_blank" style="color: #15803d; text-decoration: underline;">See our reviews</a></p>
     
@@ -225,7 +258,7 @@
 </section>
 
 <!-- Location & Hours -->
-<section>
+<section id="location">
   <h2>Visit Us</h2>
   <div class="info-grid">
     <div class="info-card">
@@ -242,7 +275,7 @@
 </section>
 
 <!-- FAQ -->
-<section>
+<section id="faq">
   <h2>Frequently Asked Questions</h2>
   <div>
     <div class="faq-item"><h3>Where is Universal Kutz Barbershop located in Willmar, MN?</h3><p>Universal Kutz Barbershop is located at 2015 1st St S #128 in Willmar, Minnesota. We're easy to find and have plenty of parking!</p></div>
@@ -253,22 +286,22 @@
       <div class="faq-item"><h3>Does Universal Kutz Barbershop in Willmar take appointments or walk-ins?</h3><p>Universal Kutz Barbershop in Willmar welcomes both appointments and walk-ins. However, appointments are highly recommended to ensure you get your preferred time slot.</p></div>
       <div class="faq-item"><h3>Do the barbers at Universal Kutz in Willmar specialize in any particular hair styles?</h3><p>Our barbers at Universal Kutz in Willmar are skilled in a variety of hair styles, but we're especially known for our expertise in fade haircuts and modern styling techniques. We stay up-to-date with the latest trends.</p></div>
       <div class="faq-item"><h3>Can I find Universal Kutz Barbershop on social media?</h3><p>Yes, you can find Universal Kutz Barbershop on Facebook under the name 'Universalkutzbarbershop' and on Instagram as 'universal_kutz'. Follow us for updates, promotions, and style inspiration!</p></div>
-    <div class="faq-item"><h3>Does Universal Kutz offer bilingual service? ¿Se habla español?</h3><p>Yes! We are Willmar's bilingual barbershop. Adrian speaks both English and Spanish. ¡Sí! Somos la barbería bilingüe de Willmar. Adrian habla inglés y español.</p></div>
-    <div class="faq-item"><h3>Is Universal Kutz a family-friendly barbershop?</h3><p>Absolutely! Universal Kutz Barbershop is a family-friendly establishment. We welcome clients of all ages and offer services for men, women, and children. Somos una barbería familiar.</p></div>
+    <div class="faq-item"><h3>Does Universal Kutz offer bilingual service? <span lang="es">¿Se habla español?</span></h3><p>Yes! We are Willmar's bilingual barbershop. Adrian speaks both English and Spanish. <span lang="es">¡Sí! Somos la barbería bilingüe de Willmar. Adrian habla inglés y español.</span></p></div>
+    <div class="faq-item"><h3>Is Universal Kutz a family-friendly barbershop?</h3><p>Absolutely! Universal Kutz Barbershop is a family-friendly establishment. We welcome clients of all ages and offer services for men, women, and children. <span lang="es">Somos una barbería familiar.</span></p></div>
   </div>
 </section>
 
 <!-- Bilingual Note -->
 <section style="background: #f8fafc; border: 2px solid #1e3a5f; border-radius: 12px; margin: 2rem auto; max-width: 800px; padding: 1.5rem; text-align: center;">
-  <h3 style="color: #1e3a5f; margin-bottom: 0.5rem;">🇲🇽 Se habla español &nbsp;|&nbsp; 🇺🇸 We speak English</h3>
-  <p style="color: #64748b; margin: 0;">Willmar's bilingual barbershop — serving our Hispanic community.<br>La barbería bilingüe de Willmar — sirviendo a nuestra comunidad hispana.</p>
+  <h3 style="color: #1e3a5f; margin-bottom: 0.5rem;"><span lang="es">🇲🇽 Se habla español</span> &nbsp;|&nbsp; 🇺🇸 We speak English</h3>
+  <p style="color: #64748b; margin: 0;">Willmar's bilingual barbershop — serving our Hispanic community.<br><span lang="es">La barbería bilingüe de Willmar — sirviendo a nuestra comunidad hispana.</span></p>
 </section>
 
 <!-- CTA Banner -->
 <div class="cta-banner">
-  <h2>Ready to get a fresh cut? — ¿Listo para un corte fresco?</h2>
-  <p>Walk-ins welcome — Bienvenidos sin cita</p>
-  <a href="tel:7137055025">Call Now — Llame Ahora</a>
+  <h2>Ready to get a fresh cut? — <span lang="es">¿Listo para un corte fresco?</span></h2>
+  <p>Walk-ins welcome — <span lang="es">Bienvenidos sin cita</span></p>
+  <a href="tel:7137055025">Call Now — <span lang="es">Llame Ahora</span></a>
 </div>
 
 <!-- Footer -->
