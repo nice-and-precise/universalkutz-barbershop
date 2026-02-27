@@ -6,6 +6,11 @@
 <title>Universal Kutz Barbershop — Willmar, MN</title>
 <meta name="description" content="Universal Kutz Barbershop in Willmar, MN. Fresh fades, tapers, and classic cuts for the whole family. 🇲🇽 Se habla español — Bilingual barbershop serving Willmar's Hispanic community. Walk-ins welcome!">
 
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
 <!-- Open Graph -->
 <meta property="og:title" content="Universal Kutz Barbershop — Willmar, MN">
 <meta property="og:description" content="Universal Kutz Barbershop in Willmar, MN. Fresh fades, tapers, and classic cuts. 🇲🇽 Se habla español — Bilingual barbershop serving Willmar's Hispanic community.">
@@ -114,114 +119,165 @@
 </script>
 
 <style>
+  :root {
+    --bg-dark: #0f172a;
+    --card-dark: #1e293b;
+    --accent: #e11d48; /* Barber Red */
+    --accent-blue: #2563eb; /* Barber Blue */
+    --text-light: #f8fafc;
+    --text-muted: #94a3b8;
+    --gold: #f59e0b;
+  }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1e293b; line-height: 1.6; }
+  body { 
+    font-family: 'Inter', -apple-system, sans-serif; 
+    color: var(--text-light); 
+    background-color: var(--bg-dark);
+    line-height: 1.6; 
+  }
   
+  h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
   /* Navigation */
   .sticky-header {
-    position: sticky; top: 0; background: white; z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05); padding: 0.75rem 1.5rem;
+    position: sticky; top: 0; background: rgba(15, 23, 42, 0.95); 
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); padding: 0.75rem 1.5rem;
     display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 2px solid var(--accent);
   }
-  .sticky-header .logo { font-weight: 800; color: #1e3a5f; text-decoration: none; font-size: 1.2rem; }
-  .sticky-header nav a { margin-left: 1.2rem; text-decoration: none; color: #475569; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
-  .sticky-header nav a:hover { color: #1e3a5f; }
+  .sticky-header .logo { 
+    font-family: 'Playfair Display', serif;
+    font-weight: 800; color: var(--text-light); text-decoration: none; font-size: 1.4rem; 
+  }
+  .sticky-header nav a { margin-left: 1.2rem; text-decoration: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
+  .sticky-header nav a:hover { color: var(--text-light); }
   .sticky-header .nav-cta {
-    background: #1e3a5f; color: white !important; padding: 0.5rem 1.2rem;
-    border-radius: 50px;
+    background: var(--accent); color: white !important; padding: 0.5rem 1.2rem;
+    border-radius: 4px; /* More industrial sharp look */
   }
   @media (max-width: 768px) {
     .sticky-header nav { display: none; }
   }
 
-  /* Section Offset for Sticky Header */
+  /* Section Offset */
   section[id] { scroll-margin-top: 5rem; }
 
   /* Hero */
   .hero {
-    background: linear-gradient(135deg, #1e3a5f 0%, #0f2440 100%);
-    color: white; text-align: center; padding: 3rem 1.5rem;
+    position: relative;
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+    color: white; text-align: center; padding: 6rem 1.5rem;
+    border-bottom: 5px solid var(--accent-blue);
   }
-  .hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; }
-  .hero .tagline { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+  .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -1px; }
+  .hero .tagline { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; }
   .hero .cta-btn {
-    display: inline-block; background: white; color: #1e3a5f;
-    font-weight: 700; font-size: 1.1rem; padding: 0.8rem 2rem;
-    border-radius: 50px; text-decoration: none; transition: transform 0.2s;
+    display: inline-block; background: var(--accent); color: white;
+    font-weight: 700; font-size: 1.1rem; padding: 1rem 2.5rem;
+    text-decoration: none; transition: all 0.2s;
+    border: 2px solid var(--accent);
   }
-  .hero .cta-btn:hover { transform: scale(1.05); }
+  .hero .cta-btn:hover { background: transparent; transform: translateY(-2px); }
   .hero .bilingual-badge { 
-    font-size: 1rem; 
-    background: rgba(255,255,255,0.15); 
+    font-size: 0.9rem; 
+    border: 1px solid rgba(255,255,255,0.2); 
     padding: 0.5rem 1rem; 
-    border-radius: 50px; 
-    margin: 1rem 0 1.5rem; 
+    margin: 1.5rem 0; 
     display: inline-block;
+    background: rgba(255,255,255,0.05);
   }
 
   /* Sections */
-  section { padding: 2.5rem 1.5rem; max-width: 800px; margin: 0 auto; }
-  section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #1e3a5f; }
+  section { padding: 4rem 1.5rem; max-width: 1000px; margin: 0 auto; }
+  section h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 2rem; color: var(--text-light); text-align: center; position: relative; }
+  section h2::after {
+    content: ''; display: block; width: 60px; height: 3px; background: var(--accent); margin: 0.5rem auto;
+  }
 
   /* Services */
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
   .service-card {
-    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
-    padding: 1.2rem; text-align: center;
+    background: var(--card-dark); border: 1px solid rgba(255,255,255,0.05);
+    padding: 2rem; transition: transform 0.3s ease;
   }
-  .service-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; }
-  .service-card p { font-size: 0.85rem; color: #64748b; }
+  .service-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+  .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--gold); }
+  .service-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem; }
+  .service-card .price { font-size: 1.4rem; font-weight: 800; color: var(--text-light); font-family: 'Playfair Display', serif; }
+
+  /* Gallery */
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .gallery-item { 
+    aspect-ratio: 1/1; overflow: hidden; position: relative; 
+    border: 2px solid transparent; transition: border-color 0.3s;
+  }
+  .gallery-item:hover { border-color: var(--accent-blue); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%); transition: all 0.5s; }
+  .gallery-item:hover img { filter: grayscale(0%); transform: scale(1.1); }
 
   /* Reviews highlight */
   .reviews {
-    background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px;
-    padding: 1.5rem; text-align: center;
+    background: var(--card-dark); border-left: 5px solid var(--gold);
+    padding: 2rem; text-align: center; max-width: 600px; margin: 0 auto;
   }
-  .reviews .stars { font-size: 1.8rem; margin-bottom: 0.5rem; }
-  .reviews .count { font-size: 0.9rem; color: #64748b; }
+  .reviews .stars { font-size: 2rem; margin-bottom: 1rem; color: var(--gold); }
+  .reviews .count { font-size: 1rem; color: var(--text-muted); }
 
   /* Info grid */
-  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  @media (max-width: 500px) { .info-grid { grid-template-columns: 1fr; } }
-  .info-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
-  .info-card p, .info-card a { font-size: 0.9rem; color: #475569; }
-  .info-card a { color: #1e3a5f; text-decoration: none; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  @media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card { background: var(--card-dark); padding: 2rem; border: 1px solid rgba(255,255,255,0.05); }
+  .info-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent-blue); }
+  .info-card p, .info-card a { font-size: 1rem; color: var(--text-muted); }
+  .info-card a { color: var(--text-light); text-decoration: underline; }
 
   /* FAQ */
-  .faq-item { border-bottom: 1px solid #e2e8f0; padding: 1rem 0; }
-  .faq-item:last-child { border-bottom: none; }
-  .faq-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; }
-  .faq-item p { font-size: 0.9rem; color: #64748b; }
+  .faq-container { max-width: 700px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; }
+  .faq-item h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-light); }
+  .faq-item p { font-size: 0.95rem; color: var(--text-muted); }
 
   /* CTA banner */
   .cta-banner {
-    background: #1e3a5f; color: white; text-align: center;
-    padding: 2rem 1.5rem;
+    background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                url('https://images.unsplash.com/photo-1512690196252-7c70e7873601?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+    color: white; text-align: center; padding: 4rem 1.5rem;
+    border-top: 5px solid var(--accent);
   }
-  .cta-banner h2 { color: white; font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .cta-banner h2 { color: white; font-size: 2rem; margin-bottom: 1rem; }
   .cta-banner a {
-    display: inline-block; background: white; color: #1e3a5f;
-    font-weight: 700; padding: 0.7rem 2rem; border-radius: 50px;
-    text-decoration: none; margin-top: 1rem;
+    display: inline-block; background: var(--accent); color: white;
+    font-weight: 700; padding: 1rem 3rem; text-decoration: none; margin-top: 1.5rem;
+    transition: all 0.3s;
   }
+  .cta-banner a:hover { transform: scale(1.05); }
 
   /* Footer */
   footer {
-    text-align: center; padding: 1.5rem; font-size: 0.8rem; color: #94a3b8;
-    border-top: 1px solid #e2e8f0;
+    text-align: center; padding: 3rem 1.5rem; font-size: 0.9rem; color: var(--text-muted);
+    background: #080c14; border-top: 1px solid rgba(255,255,255,0.05);
   }
+  
+  /* Utils */
+  .text-accent { color: var(--accent); }
+  .text-blue { color: var(--accent-blue); }
 </style>
 </head>
 <body>
 
 <!-- Navigation -->
 <nav class="sticky-header">
-  <a href="#" class="logo">Universal Kutz</a>
+  <a href="#" class="logo"><span class="text-accent">Universal</span> Kutz</a>
   <nav>
     <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
     <a href="#reviews">Reviews</a>
-    <a href="#location">Visit Us</a>
+    <a href="#location">Visit</a>
     <a href="#faq">FAQ</a>
     <a href="tel:7137055025" class="nav-cta">Call Now</a>
   </nav>
@@ -230,20 +286,53 @@
 <!-- Hero -->
 <div class="hero">
   <h1>Universal Kutz Barbershop</h1>
-  <p class="tagline">Fresh cuts & fades in Willmar, MN</p>
+  <p class="tagline">Mastering the Art of the Fade in Willmar, MN</p>
   <p class="bilingual-badge"><span lang="es">🇲🇽 Se habla español</span> &nbsp;|&nbsp; 🇺🇸 We speak English</p>
-  <a href="tel:7137055025" class="cta-btn">Call Now — <span lang="es">Llame Ahora</span></a>
+  <br>
+  <a href="tel:7137055025" class="cta-btn">Book Your Cut — <span lang="es">Reserva Tu Corte</span></a>
 </div>
 
 <!-- Services -->
 <section id="services">
-  <h2>Our Services — <span lang="es">Nuestros Servicios</span></h2>
+  <h2>Services & Pricing</h2>
   <div class="services-grid">
-    <div class="service-card"><h3>Haircut — <span lang="es">Corte de pelo</span></h3><p>Expert haircuts for men, women, and kids. <span lang="es">Cortes de pelo para toda la familia.</span> <strong>$25</strong></p></div>
-    <div class="service-card"><h3>Fade — <span lang="es">Degradado</span></h3><p>Specializing in fades, tapers, and modern styles. <span lang="es">Especialistas en degradados.</span> <strong>$28</strong></p></div>
-    <div class="service-card"><h3>Taper — <span lang="es">Taper fade</span></h3><p>Classic taper fades and modern variations. <span lang="es">Taper fade clásico y moderno.</span> <strong>$28</strong></p></div>
-    <div class="service-card"><h3>Beard Trim — <span lang="es">Arreglo de barba</span></h3><p>Professional beard trimming and shaping. <span lang="es">Arreglo profesional de barba.</span> <strong>$20</strong></p></div>
-    <div class="service-card"><h3>Kids' Cut — <span lang="es">Corte para niños</span></h3><p>Stylish cuts for kids 12 and under. <span lang="es">Cortes para niños de 12 años o menos.</span> <strong>$20</strong></p></div>
+    <div class="service-card">
+      <h3>Haircut — <span lang="es">Corte de pelo</span></h3>
+      <p>Expert haircuts for men, women, and kids. <span lang="es">Cortes de pelo para toda la familia.</span></p>
+      <div class="price">$25</div>
+    </div>
+    <div class="service-card">
+      <h3>Fade — <span lang="es">Degradado</span></h3>
+      <p>Specializing in fades, tapers, and modern styles. <span lang="es">Especialistas en degradados.</span></p>
+      <div class="price">$28</div>
+    </div>
+    <div class="service-card">
+      <h3>Taper — <span lang="es">Taper fade</span></h3>
+      <p>Classic taper fades and modern variations. <span lang="es">Taper fade clásico y moderno.</span></p>
+      <div class="price">$28</div>
+    </div>
+    <div class="service-card">
+      <h3>Beard Trim — <span lang="es">Arreglo de barba</span></h3>
+      <p>Professional beard trimming and shaping. <span lang="es">Arreglo profesional de barba.</span></p>
+      <div class="price">$20</div>
+    </div>
+    <div class="service-card">
+      <h3>Kids' Cut — <span lang="es">Corte para niños</span></h3>
+      <p>Stylish cuts for kids 12 and under. <span lang="es">Cortes para niños de 12 años o menos.</span></p>
+      <div class="price">$20</div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery">
+  <h2>Fresh Cuts Gallery</h2>
+  <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Real work from our Willmar barbershop.</p>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&q=80&w=400" alt="Fresh Fade Placeholder"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1621605815841-aa33c56b7f32?auto=format&fit=crop&q=80&w=400" alt="Sharp Taper Placeholder"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1593702295094-ada74bc4a39d?auto=format&fit=crop&q=80&w=400" alt="Beard Trim Placeholder"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=400" alt="Classic Cut Placeholder"></div>
   </div>
 </section>
 
@@ -251,62 +340,54 @@
 <section id="reviews">
   <div class="reviews">
     <div class="stars" aria-label="5 stars">★★★★★</div>
-    
-    <p class="count">447 reviews on Facebook &middot; <a href="https://www.google.com/maps/place/Universal+Kutz+Barbershop" target="_blank" style="color: #15803d; text-decoration: underline;">See our reviews</a></p>
-    
+    <p style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-light); italic">"Universal Kutz is the spot in Willmar. Adrian always hooks it up with the cleanest fades. Se habla español!"</p>
+    <p class="count">447 reviews on Facebook &middot; <a href="https://www.google.com/maps/place/Universal+Kutz+Barbershop" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">Read more reviews</a></p>
   </div>
 </section>
 
 <!-- Location & Hours -->
 <section id="location">
-  <h2>Visit Us</h2>
+  <h2>Location & Hours</h2>
   <div class="info-grid">
     <div class="info-card">
-      <h3>Location</h3>
+      <h3>The Shop</h3>
       <p>2015 1st St S #128<br>Willmar, MN 56201</p>
-      <p><a href="https://www.google.com/maps/place/Universal+Kutz+Barbershop" target="_blank">Get Directions on Google Maps</a></p>
+      <p style="margin-top: 1rem;"><a href="https://www.google.com/maps/place/Universal+Kutz+Barbershop" target="_blank">Get Directions</a></p>
     </div>
     <div class="info-card">
-      <h3>Contact</h3>
-      <p>Phone: <a href="tel:7137055025">(713) 705-5025</a></p>
-      <p><a href="https://www.facebook.com/Universalkutzbarbershop" target="_blank">Facebook</a> &middot; <a href="https://www.instagram.com/universal_kutz" target="_blank">Instagram</a></p>
+      <h3>Hours</h3>
+      <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+      <p>Sunday: Closed</p>
+      <div style="margin-top: 1.5rem;">
+        <a href="https://www.facebook.com/Universalkutzbarbershop" target="_blank" style="margin-right: 1rem;">Facebook</a>
+        <a href="https://www.instagram.com/universal_kutz" target="_blank">Instagram</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
 <section id="faq">
-  <h2>Frequently Asked Questions</h2>
-  <div>
-    <div class="faq-item"><h3>Where is Universal Kutz Barbershop located in Willmar, MN?</h3><p>Universal Kutz Barbershop is located at 2015 1st St S #128 in Willmar, Minnesota. We're easy to find and have plenty of parking!</p></div>
-      <div class="faq-item"><h3>What services does Universal Kutz offer in Willmar?</h3><p>At Universal Kutz Barbershop in Willmar, we offer a wide range of services including classic haircuts, fade haircuts, beard trims, styling, and more. We cater to all ages and hair types.</p></div>
-      <div class="faq-item"><h3>How much does a haircut cost at Universal Kutz in Willmar, MN?</h3><p>The price of a haircut at Universal Kutz in Willmar varies depending on the style and complexity. Please visit our website or call us for a detailed price list. We strive to offer competitive and affordable pricing.</p></div>
-      <div class="faq-item"><h3>What are the opening hours for Universal Kutz Barbershop in Willmar?</h3><p>Universal Kutz Barbershop in Willmar is open Monday - Saturday from 9:00 AM to 6:00 PM. Closed Sundays. Check our Google Business Profile for holiday updates.</p></div>
-      <div class="faq-item"><h3>What makes Universal Kutz the best barbershop in Willmar, Minnesota?</h3><p>Universal Kutz Barbershop is known for its experienced barbers, friendly atmosphere, and commitment to providing top-quality haircuts and styling services in Willmar. We take pride in our attention to detail and customer satisfaction.</p></div>
-      <div class="faq-item"><h3>Does Universal Kutz Barbershop in Willmar take appointments or walk-ins?</h3><p>Universal Kutz Barbershop in Willmar welcomes both appointments and walk-ins. However, appointments are highly recommended to ensure you get your preferred time slot.</p></div>
-      <div class="faq-item"><h3>Do the barbers at Universal Kutz in Willmar specialize in any particular hair styles?</h3><p>Our barbers at Universal Kutz in Willmar are skilled in a variety of hair styles, but we're especially known for our expertise in fade haircuts and modern styling techniques. We stay up-to-date with the latest trends.</p></div>
-      <div class="faq-item"><h3>Can I find Universal Kutz Barbershop on social media?</h3><p>Yes, you can find Universal Kutz Barbershop on Facebook under the name 'Universalkutzbarbershop' and on Instagram as 'universal_kutz'. Follow us for updates, promotions, and style inspiration!</p></div>
-    <div class="faq-item"><h3>Does Universal Kutz offer bilingual service? <span lang="es">¿Se habla español?</span></h3><p>Yes! We are Willmar's bilingual barbershop. Adrian speaks both English and Spanish. <span lang="es">¡Sí! Somos la barbería bilingüe de Willmar. Adrian habla inglés y español.</span></p></div>
-    <div class="faq-item"><h3>Is Universal Kutz a family-friendly barbershop?</h3><p>Absolutely! Universal Kutz Barbershop is a family-friendly establishment. We welcome clients of all ages and offer services for men, women, and children. <span lang="es">Somos una barbería familiar.</span></p></div>
+  <h2>FAQ</h2>
+  <div class="faq-container">
+    <div class="faq-item"><h3>Where is Universal Kutz Barbershop located?</h3><p>We are located at 2015 1st St S #128 in Willmar, MN. Look for us in the shopping center!</p></div>
+    <div class="faq-item"><h3>Do you take walk-ins?</h3><p>Yes, walk-ins are always welcome! However, booking ahead via phone ensures you don't have to wait. <span lang="es">Bienvenidos sin cita.</span></p></div>
+    <div class="faq-item"><h3>Does Adrian speak Spanish?</h3><p>Yes! <span lang="es">Sí, Adrian habla español e inglés con fluidez.</span> We are Willmar's premier bilingual barbershop.</p></div>
+    <div class="faq-item"><h3>What payments do you accept?</h3><p>We accept cash and all major credit cards. <span lang="es">Aceptamos efectivo y tarjetas.</span></p></div>
   </div>
-</section>
-
-<!-- Bilingual Note -->
-<section style="background: #f8fafc; border: 2px solid #1e3a5f; border-radius: 12px; margin: 2rem auto; max-width: 800px; padding: 1.5rem; text-align: center;">
-  <h3 style="color: #1e3a5f; margin-bottom: 0.5rem;"><span lang="es">🇲🇽 Se habla español</span> &nbsp;|&nbsp; 🇺🇸 We speak English</h3>
-  <p style="color: #64748b; margin: 0;">Willmar's bilingual barbershop — serving our Hispanic community.<br><span lang="es">La barbería bilingüe de Willmar — sirviendo a nuestra comunidad hispana.</span></p>
 </section>
 
 <!-- CTA Banner -->
 <div class="cta-banner">
-  <h2>Ready to get a fresh cut? — <span lang="es">¿Listo para un corte fresco?</span></h2>
-  <p>Walk-ins welcome — <span lang="es">Bienvenidos sin cita</span></p>
+  <h2>Ready for a fresh look?</h2>
+  <p><span lang="es">¿Listo para un corte fresco?</span> Walk-ins are welcome.</p>
   <a href="tel:7137055025">Call Now — <span lang="es">Llame Ahora</span></a>
 </div>
 
 <!-- Footer -->
 <footer>
-  &copy; 2026 Universal Kutz Barbershop &middot; Willmar, MN
+  <p>&copy; 2026 Universal Kutz Barbershop &middot; Willmar, MN</p>
+  <p style="margin-top: 0.5rem; opacity: 0.5; font-size: 0.7rem;">Crafted with pride for the Willmar Community.</p>
 </footer>
 
 </body>
